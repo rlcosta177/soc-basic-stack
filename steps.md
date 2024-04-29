@@ -1,10 +1,9 @@
- ubuntu            ubuntu    redhat
-- CONTROL:     |  - LUX1:   - LUX2     WIN2022    WIN11
-- NEW RELIC    |  - HTTP    - HTTPS   - IIS
-- WAZUH        |  - NGINX   - APACHE  - HTTP
-- UPTIME ROBOT |                      - HTTPS
-- PAGERDUTY    |
-- SPLUNK       |
+Topology
+ - Control(ubuntu): NewRelic \ Wazuh \ Uptimerobot \ Pagerduty \ Splunk
+ - Lux1(ubuntu): HTTP(nginx)
+ - Lux2(RedHat): HTTPS(apache)
+ - Win2022: IIS \ HTTP \ HTTPS
+ - Win11: ?
 
 1. Install Wazuh server on the control instance
     - curl -sO https://packages.wazuh.com/4.7/wazuh-install.sh && sudo bash ./wazuh-install.sh -a  (quick install on the wazuh's website for an updated command)
