@@ -1,0 +1,42 @@
+ ubuntu          ubuntu   redhat
+CONTROL:     |   LUX1:    LUX2    WIN2022    WIN11
+NEW RELIC    |   HTTP     HTTPS   IIS
+WAZUH        |   NGINX    APACHE  HTTP
+UPTIME ROBOT |                    HTTPS
+PAGERDUTY    |
+SPLUNK       |
+
+1. Install Wazuh server on the control instance
+    - curl -sO https://packages.wazuh.com/4.7/wazuh-install.sh && sudo bash ./wazuh-install.sh -a  (quick install on the wazuh's website for an updated command)
+    - curl -so wazuh-passwords-tool.sh https://packages.wazuh.com/4.7/wazuh-passwords-tool.sh -> bash wazuh-passwords-tool.sh -u admin -p Secr3tP4ssw*rd <- reset the password (to change the password)
+    - go to https://<control_IP>
+    - add agent
+    - choose the private IP to manage devices localy, or Public IP to manage remote devices(add their ips to the security group)
+    - cp and paste the two commands at the end in the clients
+    - after the agent is connected, click on him -> SCA -> click on the row at the bottom(the one with the fails and passes) -> harden the device
+  
+2. Installing Nginx into Lux1 | ref:https://ubuntu.com/tutorials/install-and-configure-nginx#2-installing-nginx
+    - sudo apt update && sudo apt upgrade -y
+    - sudo apt install nginx
+    - go to http://<lux1_ip>
+
+3. Installing Apache(httpd) on Lux2(redhat) | ref:https://access.redhat.com/documentation/en-us/jboss_enterprise_application_platform/6.3/html/administration_and_configuration_guide/install_the_apache_httpd_in_red_hat_enterprise_linux_with_jboss_eap_6_rpm
+    - yum update
+    - yum install httpd
+    - systemctl enable httpd
+    - systemctl start httpd
+  
+4. letsencrypt + apache on Lux2
+    - 
+
+5. New Relic Integration(key i got: NRAK-B5OJ5RED7FUMK3RMGFBAUFF9T53)
+    - go to new relic, create an account, add the agent(copy the command into the client)
+    - don't integrate with aws, the student account doesn't allow that
+    - add new data source(apache, nginx, linux logs, etc.)
+    - to add a new agent go to "add data" -> linux/windows OR apache/nginx, depends on what you want to be logged on that instance -> copy the command and paste it on the dsired client
+  
+6. Uptimerobot Integration
+    - register -> new monitor -> add the webserver ip(use http instead of https when necessary) -> add the uptimerobot ips to the security group list with http(s) permissions so that they can probe the website(s)
+  
+7.  Pagerduty Integration with Wazuh
+    - 
