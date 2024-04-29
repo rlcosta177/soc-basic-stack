@@ -27,7 +27,7 @@ SPLUNK       |
     - systemctl start httpd
   
 4. letsencrypt + apache on Lux2
-    - 
+    - s
 
 5. New Relic Integration(key i got: NRAK-B5OJ5RED7FUMK3RMGFBAUFF9T53)
     - go to new relic, create an account, add the agent(copy the command into the client)
@@ -38,5 +38,5 @@ SPLUNK       |
 6. Uptimerobot Integration
     - register -> new monitor -> add the webserver ip(use http instead of https when necessary) -> add the uptimerobot ips to the security group list with http(s) permissions so that they can probe the website(s)
   
-7.  Pagerduty Integration with Wazuh
-    - 
+7.  Pagerduty Integration with Wazuh(ref: https://medium.com/@hasithaupekshitha97/streamlining-incident-response-wazuh-integration-with-pagerduty-989d7f5476da)
+    - register to pagerduty
