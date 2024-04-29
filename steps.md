@@ -25,8 +25,14 @@ Topology
     - systemctl enable httpd
     - systemctl start httpd
   
-4. letsencrypt + apache on Lux2
-    - s
+4. https apache on Lux2
+    - yum install apache
+    - yum install openssl
+    - yum install mod_ssl
+    - mkdir /etc/ssl/private
+    - chmod 700 /etc/ssl/private
+    - openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/apache-selfsigned.key -out /etc/ssl/certs/apache-selfsigned.crt
+    - systemctl restart httpd
 
 5. New Relic Integration(key i got: NRAK-B5OJ5RED7FUMK3RMGFBAUFF9T53)
     - go to new relic, create an account, add the agent(copy the command into the client)
