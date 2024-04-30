@@ -6,8 +6,8 @@ Topology
  - Win11: ?
 
 1. Install Wazuh server on the control instance
-    - curl -sO https://packages.wazuh.com/4.7/wazuh-install.sh && sudo bash ./wazuh-install.sh -a  (quick install on the wazuh's website for an updated command)
-    - curl -so wazuh-passwords-tool.sh https://packages.wazuh.com/4.7/wazuh-passwords-tool.sh -> bash wazuh-passwords-tool.sh -u admin -p Secr3tP4ssw*rd <- reset the password (to change the password)
+    - ``curl -sO https://packages.wazuh.com/4.7/wazuh-install.sh && sudo bash ./wazuh-install.sh -a  (quick install on the wazuh's website for an updated command)``
+    - ``curl -so wazuh-passwords-tool.sh https://packages.wazuh.com/4.7/wazuh-passwords-tool.sh -> bash wazuh-passwords-tool.sh -u admin -p Secr3tP4ssw*rd <- reset the password (to change the password)``
     - go to https://<control_ip>
     - add agent
     - choose the private IP to manage devices localy, or Public IP to manage remote devices(add their ips to the security group)
