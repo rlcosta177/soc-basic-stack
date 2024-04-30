@@ -62,5 +62,12 @@ Topology
           </integration>
 
 8. Configure IIS server on win2022
-    - 
+    - Install IIS, DNS Server, Certificate Authority
+    - delete the default website and create one of your own(e.g www.bozo.com)
+    - add that url to the dns server and change you dns server to 127.0.0.1
+    - create a certificate request, store it, copy the contents, make a request to <ip>/certsrv
+    - issue the certificate from the Certification Authority tab(tools -> Certification Authority)
+    - go back to the certsvr website -> view pending requests, download the certificate(1st option)
+    - install the certificate
+    - go to iis -> bindings -> add https, choose the certificate and voila, all working localy, sort of
 
