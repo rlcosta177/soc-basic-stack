@@ -39,8 +39,8 @@ Topology
     - register -> new monitor -> add the webserver ip(use http instead of https when necessary) -> add the uptimerobot ips to the security group list with http(s) permissions so that they can probe the website(s)
   
 6. Pagerduty Integration with Wazuh(my acc: entarlc-1.pagerduty.com)
-     ref: https://medium.com/@hasithaupekshitha97/streamlining-incident-response-wazuh-integration-with-pagerduty-989d7f5476da)
-     ref: https://documentation.wazuh.com/current/user-manual/reference/ossec-conf/integration.html
+    - ref: https://medium.com/@hasithaupekshitha97/streamlining-incident-response-wazuh-integration-with-pagerduty-989d7f5476da)
+    - ref: https://documentation.wazuh.com/current/user-manual/reference/ossec-conf/integration.html
     
     - register to pagerduty(use work/school acc and on US)
     - Log in to your PagerDuty account
@@ -62,6 +62,4 @@ Topology
 
 
 8. Splunk integration
-    ref: https://medium.com/@dannyopara/installing-splunk-enterprise-on-ubuntu-step-by-step-guide-b545982038c3
-
-    - ubuntu/Passw0rd
+    - ref: https://medium.com/@dannyopara/installing-splunk-enterprise-on-ubuntu-step-by-step-guide-b545982038c3
