@@ -43,5 +43,24 @@ Topology
 6. Uptimerobot Integration
     - register -> new monitor -> add the webserver ip(use http instead of https when necessary) -> add the uptimerobot ips to the security group list with http(s) permissions so that they can probe the website(s)
   
-7.  Pagerduty Integration with Wazuh(ref: https://medium.com/@hasithaupekshitha97/streamlining-incident-response-wazuh-integration-with-pagerduty-989d7f5476da)
-    - register to pagerduty
+7.  Pagerduty Integration with Wazuh(my acc: entarlc-1.pagerduty.com)
+     ref: https://medium.com/@hasithaupekshitha97/streamlining-incident-response-wazuh-integration-with-pagerduty-989d7f5476da)
+     ref: https://documentation.wazuh.com/current/user-manual/reference/ossec-conf/integration.html
+    
+    - register to pagerduty(use work/school acc and on US)
+    - Log in to your PagerDuty account
+    - Create a new service by navigating to Services > Add New Service.
+    - Choose Events API v2 as the integration type
+    - Copy the generated Integration Key
+    - Access the Wazuh server and open the Wazuh configuration file located at /var/ossec/etc/ossec.conf.
+    - Add the following configuration block within the <ossec_config> section:
+          <integration>
+            <name>pagerduty</name>
+            <api_key>API_KEY</api_key> <!-- Replace with your PagerDuty API key -->
+            <level>3<level> <!-- Level 3 for testing purpouses -->
+            <alert_format>json</alert_format> <!-- With the new script this is mandatory -->
+          </integration>
+
+8. Configure IIS server on win2022
+    - 
+
