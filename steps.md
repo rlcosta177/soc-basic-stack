@@ -19,14 +19,8 @@ Topology
     - sudo apt install nginx
     - go to http://<lux1_ip>
 
-3. Installing Apache(httpd) on Lux2(redhat) | ref:https://access.redhat.com/documentation/en-us/jboss_enterprise_application_platform/6.3/html/administration_and_configuration_guide/install_the_apache_httpd_in_red_hat_enterprise_linux_with_jboss_eap_6_rpm
-    - yum update
+3. https apache on Lux2
     - yum install httpd
-    - systemctl enable httpd
-    - systemctl start httpd
-  
-4. https apache on Lux2
-    - yum install apache
     - yum install openssl
     - yum install mod_ssl
     - mkdir /etc/ssl/private
@@ -34,16 +28,16 @@ Topology
     - openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/apache-selfsigned.key -out /etc/ssl/certs/apache-selfsigned.crt
     - systemctl restart httpd
 
-5. New Relic Integration(key i got: NRAK-B5OJ5RED7FUMK3RMGFBAUFF9T53)
+4. New Relic Integration(key i got: NRAK-B5OJ5RED7FUMK3RMGFBAUFF9T53)
     - go to new relic, create an account, add the agent(copy the command into the client)
     - don't integrate with aws, the student account doesn't allow that
     - add new data source(apache, nginx, linux logs, etc.)
     - to add a new agent go to "add data" -> linux/windows OR apache/nginx, depends on what you want to be logged on that instance -> copy the command and paste it on the dsired client
   
-6. Uptimerobot Integration
+5. Uptimerobot Integration
     - register -> new monitor -> add the webserver ip(use http instead of https when necessary) -> add the uptimerobot ips to the security group list with http(s) permissions so that they can probe the website(s)
   
-7.  Pagerduty Integration with Wazuh(my acc: entarlc-1.pagerduty.com)
+6.  Pagerduty Integration with Wazuh(my acc: entarlc-1.pagerduty.com)
      ref: https://medium.com/@hasithaupekshitha97/streamlining-incident-response-wazuh-integration-with-pagerduty-989d7f5476da)
      ref: https://documentation.wazuh.com/current/user-manual/reference/ossec-conf/integration.html
     
@@ -61,7 +55,7 @@ Topology
             <alert_format>json</alert_format> <!-- With the new script this is mandatory -->
           </integration>
 
-8. Configure IIS server on win2022
+7. Configure IIS server on win2022
     - Install IIS, DNS Server, Certificate Authority
     - delete the default website and create one of your own(e.g www.bozo.com)
     - add that url to the dns server and change you dns server to 127.0.0.1
