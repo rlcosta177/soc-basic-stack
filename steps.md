@@ -16,8 +16,8 @@ Topology
     - remove wazuh agents: https://documentation.wazuh.com/current/user-manual/agent/agent-management/remove-agents/remove.html
   
 2. Installing Nginx into Lux1 | ref:https://ubuntu.com/tutorials/install-and-configure-nginx#2-installing-nginx
-    - sudo apt update && sudo apt upgrade -y
-    - sudo apt install nginx
+    - ``sudo apt update && sudo apt upgrade -y``
+    - ``sudo apt install nginx``
     - go to http://<lux1_ip>
 
 3. https apache on Lux2
