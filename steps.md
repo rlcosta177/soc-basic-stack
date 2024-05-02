@@ -65,4 +65,5 @@ Topology
 
 8. Splunk integration
     - ref: https://medium.com/@dannyopara/installing-splunk-enterprise-on-ubuntu-step-by-step-guide-b545982038c3
-    - sudo /opt/splunk/bin/splunk enable boot-start -user splunk -systemd-managed 0 <- run this on boot, otherwise it wont start by itself
+    - sudo /opt/splunk/bin/splunk enable boot-start -user splunk -systemd-managed 0 <- run this on boot, otherwise it wont start by itself (ref:https://community.splunk.com/t5/Deployment-Architecture/Systemd-start-restart-for-splunk-not-working-as-expected-CentOS/m-p/308123)
+    - /opt/splunk/bin/splunk enable boot-start -user root -systemd-managed 1
