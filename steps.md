@@ -3,7 +3,7 @@ Topology
  - Lux1(ubuntu): HTTP(nginx)
  - Lux2(RedHat): HTTPS(apache)
  - Win2022: IIS \ HTTP \ HTTPS
- - Win11: ?
+ - Win11: nay
 
 1. Install Wazuh server on the control instance
     - ``curl -sO https://packages.wazuh.com/4.7/wazuh-install.sh && sudo bash ./wazuh-install.sh -a  (quick install on the wazuh's website for an updated command)``
@@ -38,7 +38,7 @@ Topology
 5. Uptimerobot Integration
     - register -> new monitor -> add the webserver ip(use http instead of https when necessary) -> add the uptimerobot ips to the security group list with http(s) permissions so that they can probe the website(s)
   
-6. Pagerduty Integration with Wazuh(my acc: entarlc-1.pagerduty.com)
+6. Pagerduty Integration with Wazuh(my acc: entarlc-2.pagerduty.com) | d011f8c418a74e0cd06fc2bc6ef86eeb
     - ref: https://medium.com/@hasithaupekshitha97/streamlining-incident-response-wazuh-integration-with-pagerduty-989d7f5476da)
     - ref: https://documentation.wazuh.com/current/user-manual/reference/ossec-conf/integration.html
     
