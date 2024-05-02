@@ -29,7 +29,7 @@ Topology
     - ``openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/apache-selfsigned.key -out /etc/ssl/certs/apache-selfsigned.crt``
     - ``systemctl restart httpd``
 
-4. New Relic Integration(key i got: NRAK-B5OJ5RED7FUMK3RMGFBAUFF9T53)
+4. New Relic Integration(key: NRAK-B5OJ5RED7FUMK3RMGFBAUFF9T53)
     - go to new relic, create an account, add the agent(copy the command into the client)
     - don't integrate with aws, the student account doesn't allow that
     - add new data source(apache, nginx, linux logs, etc.)
