@@ -50,12 +50,19 @@ Topology
     - Access the Wazuh server and open the Wazuh configuration file located at /var/ossec/etc/ossec.conf.
     - Add the following configuration block within the <ossec_config> section:
       ``
+      
           <integration>
+          
             <name>pagerduty</name>
+      
             <api_key>API_KEY</api_key> <!-- Replace with your PagerDuty API key -->
+      
             <level>3<level> <!-- Level 3 for testing purpouses -->
+      
             <alert_format>json</alert_format> <!-- With the new script this is mandatory -->
+      
           </integration>
+      
        ``
 
 7. Configure IIS server on win2022
