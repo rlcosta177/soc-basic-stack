@@ -6,8 +6,8 @@ Topology
  - Win11: nay
 
 1. Install Wazuh server on the control instance
-    - ``curl -sO https://packages.wazuh.com/4.7/wazuh-install.sh && sudo bash ./wazuh-install.sh -a  (quick install on the wazuh's website for an updated command)``
-    - ``curl -so wazuh-passwords-tool.sh https://packages.wazuh.com/4.7/wazuh-passwords-tool.sh -> bash wazuh-passwords-tool.sh -u admin -p Secr3tP4ssw*rd <- reset the password (to change the password)``
+    - `curl -sO https://packages.wazuh.com/4.7/wazuh-install.sh && sudo bash ./wazuh-install.sh -a` (quick install on the wazuh's website for an updated command)
+    - `curl -so wazuh-passwords-tool.sh https://packages.wazuh.com/4.7/wazuh-passwords-tool.sh` -> `bash wazuh-passwords-tool.sh -u admin -p Secr3tP4ssw*rd`
     - go to https://<control_ip>
     - add agent
     - choose the private IP to manage devices localy, or Public IP to manage remote devices(add their ips to the security group)
@@ -20,16 +20,16 @@ Topology
     - ``sudo apt install nginx``
     - go to http://<lux1_ip>
 
-3. https apache on Lux2
-    - ``yum install httpd``
-    - ``yum install openssl``
-    - ``yum install mod_ssl``
-    - ``mkdir /etc/ssl/private``
-    - ``chmod 700 /etc/ssl/private``
-    - ``openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/apache-selfsigned.key -out /etc/ssl/certs/apache-selfsigned.crt``
-    - ``systemctl restart httpd``
+3. https with apache on Lux2
+    - `yum install httpd`
+    - `yum install openssl`
+    - `yum install mod_ssl`
+    - `mkdir /etc/ssl/private`
+    - `chmod 700 /etc/ssl/private`
+    - `openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/apache-selfsigned.key -out /etc/ssl/certs/apache-selfsigned.crt`
+    - `systemctl restart httpd`
 
-4. New Relic Integration(key: NRAK-B5OJ5RED7FUMK3RMGFBAUFF9T53)
+4. New Relic Integration
     - go to new relic, create an account, add the agent(copy the command into the client)
     - don't integrate with aws, the student account doesn't allow that
     - add new data source(apache, nginx, linux logs, etc.)
@@ -49,7 +49,7 @@ Topology
     - Copy the generated Integration Key
     - Access the Wazuh server and open the Wazuh configuration file located at /var/ossec/etc/ossec.conf.
     - Add the following configuration block within the <ossec_config> section:
-      ``
+      ```sh
       
           <integration>
           
@@ -63,7 +63,7 @@ Topology
       
           </integration>
       
-       ``
+       ```
 
 7. Configure IIS server on win2022
     - Install IIS and Certificate Authority
