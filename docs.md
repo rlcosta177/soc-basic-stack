@@ -3,9 +3,11 @@ Topology
  - Lux1(ubuntu): HTTP(nginx)
  - Lux2(RedHat): HTTPS(apache)
  - Win2022: IIS \ HTTP \ HTTPS
- - Win11: nay
+ - Win11: --
 
-1. Install Wazuh server on the control instance
+--- 
+
+## 1. Install Wazuh server on the control instance
     - `curl -sO https://packages.wazuh.com/4.7/wazuh-install.sh && sudo bash ./wazuh-install.sh -a` (quick install on the wazuh's website for an updated command)
     - `curl -so wazuh-passwords-tool.sh https://packages.wazuh.com/4.7/wazuh-passwords-tool.sh` -> `bash wazuh-passwords-tool.sh -u admin -p Secr3tP4ssw*rd`
     - go to https://<control_ip>
@@ -14,13 +16,17 @@ Topology
     - cp and paste the two commands at the end in the clients
     - after the agent is connected, click on him -> SCA -> click on the row at the bottom(the one with the fails and passes) -> harden the device
     - remove wazuh agents: https://documentation.wazuh.com/current/user-manual/agent/agent-management/remove-agents/remove.html
+
+---
   
-2. Installing Nginx into Lux1 | ref:https://ubuntu.com/tutorials/install-and-configure-nginx#2-installing-nginx
+## 2. Installing Nginx into Lux1 | ref:https://ubuntu.com/tutorials/install-and-configure-nginx#2-installing-nginx
     - ``sudo apt update && sudo apt upgrade -y``
     - ``sudo apt install nginx``
     - go to http://<lux1_ip>
 
-3. https with apache on Lux2
+---
+
+## 3. https with apache on Lux2
     - `yum install httpd`
     - `yum install openssl`
     - `yum install mod_ssl`
@@ -29,16 +35,22 @@ Topology
     - `openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/apache-selfsigned.key -out /etc/ssl/certs/apache-selfsigned.crt`
     - `systemctl restart httpd`
 
-4. New Relic Integration
+---
+
+## 4. New Relic Integration
     - go to new relic, create an account, add the agent(copy the command into the client)
     - don't integrate with aws, the student account doesn't allow that
     - add new data source(apache, nginx, linux logs, etc.)
     - to add a new agent go to "add data" -> linux/windows OR apache/nginx, depends on what you want to be logged on that instance -> copy the command and paste it on the dsired client
   
-5. Uptimerobot Integration
+---
+
+## 5. Uptimerobot Integration
     - register -> new monitor -> add the webserver ip(use http instead of https when necessary) -> add the uptimerobot ips to the security group list with http(s) permissions so that they can probe the website(s)
+
+---
   
-6. Pagerduty Integration with Wazuh(my acc: entarlc-2.pagerduty.com) | d011f8c418a74e0cd06fc2bc6ef86eeb
+## 6. Pagerduty Integration with Wazuh(my acc: entarlc-2.pagerduty.com) | d011f8c418a74e0cd06fc2bc6ef86eeb
     - ref: https://medium.com/@hasithaupekshitha97/streamlining-incident-response-wazuh-integration-with-pagerduty-989d7f5476da)
     - ref: https://documentation.wazuh.com/current/user-manual/reference/ossec-conf/integration.html
     
@@ -65,12 +77,15 @@ Topology
       
        ```
 
-7. Configure IIS server on win2022
+---
+
+## 7. Configure IIS server on win2022
     - Install IIS and Certificate Authority
     - go to iis -> bindings -> add https, choose the certificate and voila(because the machine is the CA, the certificate will be there already), all working localy, sort of
 
+---
 
-8. Splunk integration
+## 8. Splunk integration
     - ref: https://medium.com/@dannyopara/installing-splunk-enterprise-on-ubuntu-step-by-step-guide-b545982038c3
     - sudo /opt/splunk/bin/splunk enable boot-start -user splunk -systemd-managed 0 <- run this on boot, otherwise it wont start by itself (ref:https://community.splunk.com/t5/Deployment-Architecture/Systemd-start-restart-for-splunk-not-working-as-expected-CentOS/m-p/308123)
     - /opt/splunk/bin/splunk enable boot-start -user root -systemd-managed 1
